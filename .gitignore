@@ -10,6 +10,11 @@ __pycache__/
 
 data/*
 !data/.gitkeep
+temp-diagrams/
+docs/diagrams/*.html
+docs/diagrams/*-rendered.*
+docs/diagrams/*.finalize*.json
+docs/diagrams/*.delivery.json
 results/*.parquet
 *.pt
 *.ckpt

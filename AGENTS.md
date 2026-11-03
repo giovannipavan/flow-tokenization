@@ -160,6 +160,36 @@ splits = json.load(open('splits.json'))
   needs its own entry file (for example `CLAUDE.md` for Claude Code), make it import
   this file instead of duplicating it.
 
+## Diagrams (Archify)
+
+We keep diagram **sources** in git and render the HTML locally. A collaborator who
+pulls the repo regenerates the HTML; the generated files are build artifacts.
+
+- Sources live in `docs/diagrams/*.archify.md` and **are committed**.
+- Rendered HTML and receipts go to `temp-diagrams/` and are **gitignored**, together
+  with any rendered output placed under `docs/diagrams/`.
+- The Archify skill is installed globally per machine, not from this repo:
+
+  ```bash
+  npx -y skills@latest add https://archify.si --skill archify --agent opencode --global --copy --yes
+  ```
+
+- To render a source (adjust the output folder per run):
+
+  ```bash
+  node ~/.agents/skills/archify/bin/archify.mjs finalize explainer \
+    docs/diagrams/project-overview.archify.md \
+    temp-diagrams/project-overview/project-overview.html --json
+  ```
+
+- Workflow for a change: edit the `.archify.md`, commit/push it, and the other
+  collaborator pulls and reruns the command. Never commit the HTML.
+- Diagram content must be checked against `AGENTS.md` and the data README; do not
+  invent numbers. If a `.archify.md` is added, also add its render command mention
+  in this section or a local README.
+- `opencode.jsonc` is personal (see `.gitignore`) and is not shared through git.
+
+
 ## Working conventions
 
 - **Language:** code, comments and documentation in English; talk to Giovanni in
