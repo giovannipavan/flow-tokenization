@@ -13,6 +13,8 @@ results/*.parquet
 *.ckpt
 .env
 
+opencode.jsonc
+
 # Distribution / packaging
 .Python
 build/
