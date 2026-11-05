@@ -10,6 +10,7 @@ __pycache__/
 
 data/*
 !data/.gitkeep
+docs/TIMELINE.md
 temp-diagrams/
 docs/diagrams/*.html
 docs/diagrams/*-rendered.*

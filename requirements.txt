@@ -1,0 +1,6 @@
+# Direct dependencies. Add each package only when the code starts using it.
+
+# Reading the parquet dataset (lazy SQL over the file, no full load in RAM).
+duckdb>=1.0
+# Parquet engine; >=26 is required because flows.parquet was written by Arrow 26.
+pyarrow>=26.0
