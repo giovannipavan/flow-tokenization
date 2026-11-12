@@ -4,3 +4,7 @@
 duckdb>=1.0
 # Parquet engine; >=26 is required because flows.parquet was written by Arrow 26.
 pyarrow>=26.0
+
+pandas>=2.0        # tabelle in Python: DuckDB ci restituisce i risultati come DataFrame
+matplotlib>=3.7    # grafici
+jupyter            # per far girare il notebook (se non lo hai già)
