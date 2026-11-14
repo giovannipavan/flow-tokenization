@@ -136,3 +136,12 @@ Trained on a random subsample of train (~3 M rows), evaluated on validation.
 3. Is the intended target `delta_rtt` (README) or the RTT itself (project slides)?
 4. Are CRIC site and ASN available at prediction time in an operational setting?
 5. Would a secondary task on telemetry quality (predicting failed end measurements) be of interest?
+
+
+
+Variabile	Decisione	Stato
+meta.protocol	eliminata	definitiva
+meta.ip_version	categoria binaria	definitiva
+meta.experiment_name	non usata come input separato; usata per i fallback e le ablazioni	default, da confermare con ablazione
+meta.activity_id	sostituita dalla coppia esperimento × attività	default, da confermare con ablazione
+coppia exp × act	31 categorie; sotto soglia → <EXP>_RARE; mai viste → <EXP>_UNK	soglia N e tasso UNK da fissare
