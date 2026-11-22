@@ -1,0 +1,22 @@
+{
+  "mae": 1.9663996240443775,
+  "rmse": 47.22161084223001,
+  "rmse_robust": 5.263721887524981,
+  "p90_abs": 4.598690421390536,
+  "p99_abs": 23.0344129575348,
+  "n_flows": 10069254,
+  "robust_rmse_thresholds": [
+    -184.23263,
+    58.82300000000002
+  ],
+  "model": "B2 linear (L1)",
+  "n_params": 1733,
+  "train_time_s": 15.4,
+  "n_train_flows": 4000667,
+  "lambda": 1e-05,
+  "epochs": 5,
+  "lr": 0.01,
+  "gamma": 0.5,
+  "batch": 4096,
+  "seed": 0
+}

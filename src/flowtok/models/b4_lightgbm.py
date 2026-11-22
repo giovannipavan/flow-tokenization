@@ -61,14 +61,17 @@ def run(con, cfg, split, model_dir):
     meta = data.load_meta()
     _, feat = features(meta)
 
+    print("  loading train_enc + tune_enc ...", flush=True)
     train = pd.concat([data.load_encoded("train_enc", meta), data.load_encoded("tune_enc", meta)],
                       ignore_index=True)
+    print(f"  training {int(cfg['n_trees'])} trees on {len(train):,} flows ...", flush=True)
     t0 = time.time()
     model = lgb.train(lgb_params(cfg), dataset(train, meta), num_boost_round=int(cfg["n_trees"]))
     train_time = time.time() - t0
     n_train = len(train)
     del train
 
+    print(f"  trained in {train_time:.0f} s; predicting on {split}_enc ...", flush=True)
     ev = data.load_encoded(f"{split}_enc", meta)
     pred = model.predict(ev[feat])
     table = evaluation.register_numpy_predictions(con, split, ev["row_id"].to_numpy(), pred, "pred_b4")

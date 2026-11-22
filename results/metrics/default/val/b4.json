@@ -1,13 +1,18 @@
 {
+  "mae": 1.8293986306436032,
+  "rmse": 47.06491528815452,
+  "rmse_robust": 4.926831024855993,
+  "p90_abs": 4.560633163816662,
+  "p99_abs": 22.622314036623788,
+  "n_flows": 10069254,
+  "robust_rmse_thresholds": [
+    -184.23263,
+    58.82300000000002
+  ],
   "model": "B4 LightGBM (L1)",
-  "MAE": 1.8332570069765324,
-  "RMSE": 47.07572434124263,
-  "RMSE_robust": 4.94458663190812,
-  "P90_abs": 4.563222661904012,
-  "P99_abs": 22.640237498110384,
   "n_params": 25893,
   "n_params_note": "total number of leaves; split structure not counted",
-  "train_time_s": 31,
+  "train_time_s": 43.2,
   "n_train_flows": 4000667,
   "n_trees": 411,
   "learning_rate": 0.1,
@@ -16,9 +21,5 @@
   "min_data_per_group": 50,
   "cat_smooth": 10,
   "max_cat_threshold": 32,
-  "tune_mae_at_selection": 1.5944,
-  "robust_rmse_thresholds": [
-    -184.23263,
-    58.82300000000002
-  ]
+  "seed": 0
 }

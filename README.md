@@ -108,7 +108,10 @@ the old folder first if you want to keep it. The values used are recorded in
 - `models`: which baselines to run.
 - one block per model with its hyperparameters (missing values take the defaults written
   at the top of each model file).
-- `save_predictions` (optional, default `true`): save the predictions of each model.
+- `save_predictions` (optional, default `false`): also save the prediction of each model for
+  every flow (about 720 MB per model on the validation split). Useful only for analyses on
+  single flows (error analysis, flow-by-flow comparison of models, plots, bootstrap); the
+  metrics are always saved.
 
 To try a variant, copy `default.json`, change `name` and the values, and run the new file.
 `configs/quick.json` runs only B0 and B1 (about a minute), useful to check the setup.
@@ -164,7 +167,7 @@ results/
     summary.csv                        # one row per (run, split, model), committed
     tuning/<name>/<model>.csv          # hyperparameter search tables, committed
     models/<name>/                     # trained models (not committed)
-    predictions/<name>/<split>/        # flow_id, t_start, pred per model (not committed)
+    predictions/<name>/<split>/        # flow_id, t_start, pred per model, only with "save_predictions": true (not committed)
 ```
 
 Metrics are small and shared through git; models and predictions are large and can be

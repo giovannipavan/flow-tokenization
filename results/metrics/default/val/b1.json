@@ -1,0 +1,19 @@
+{
+  "mae": 2.209376641209162,
+  "rmse": 47.2334258596704,
+  "rmse_robust": 5.377154711470394,
+  "p90_abs": 4.860999999999999,
+  "p99_abs": 23.067999999999998,
+  "n_flows": 10069254,
+  "robust_rmse_thresholds": [
+    -184.23263,
+    58.82300000000002
+  ],
+  "model": "B1 median per L2 pair (server_client)",
+  "n_params": 2166,
+  "train_time_s": 2.5,
+  "identifier": "L2",
+  "orientation": "server_client",
+  "min_flows": 1000,
+  "global_median": 4.397999999999996
+}

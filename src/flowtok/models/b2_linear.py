@@ -144,6 +144,7 @@ def run(con, cfg, split, model_dir):
     meta = data.load_meta()
     n_codes = data.n_codes_per_column(meta)
 
+    print(f"  loading train_enc, tune_enc and {split}_enc ...", flush=True)
     _, X_tr, rtt_tr, y_tr = load("train_enc", meta)
     _, X_tu, rtt_tu, y_tu = load("tune_enc", meta)
     row_ev, X_ev, rtt_ev, _ = load(f"{split}_enc", meta)
@@ -158,6 +159,7 @@ def run(con, cfg, split, model_dir):
     # the untrained model predicts the median of the training data for every flow
     initial = float(torch.from_numpy(y_tt).median())
 
+    print(f"  training for {int(cfg['epochs'])} epochs on {len(y_tt):,} flows ...", flush=True)
     t0 = time.time()
     model, _, _ = fit(X_tt, x_tt, y_tt, n_codes,
                       lam=cfg["lambda"], epochs=int(cfg["epochs"]), lr=cfg["lr"],
@@ -165,6 +167,7 @@ def run(con, cfg, split, model_dir):
                       initial_intercept=initial)
     train_time = time.time() - t0
 
+    print(f"  trained in {train_time:.0f} s; predicting on {split}_enc ...", flush=True)
     pred = predict(model, X_ev, x_ev)
     table = evaluation.register_numpy_predictions(con, split, row_ev, pred, "pred_b2")
 
