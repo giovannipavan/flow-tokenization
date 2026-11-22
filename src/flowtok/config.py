@@ -21,9 +21,6 @@ def load(path):
     cfg.setdefault("models", [])
     if cfg["split"] not in SPLITS:
         raise SystemExit(f"split must be one of {SPLITS}, not '{cfg['split']}'")
-    if cfg["split"] == "test" and cfg.get("confirm_test") is not True:
-        raise SystemExit('The test split is used once, at the end of the project. '
-                         'Add "confirm_test": true to the config to use it.')
     for m in cfg["models"]:
         if m not in models.MODULES:
             raise SystemExit(f"Unknown model '{m}'. Available: {list(models.MODULES)}")

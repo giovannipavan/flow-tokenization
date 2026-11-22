@@ -79,7 +79,6 @@ There are two levels of parameters.
 | `N_TRAIN`       | 3,000,000 | size of `train_enc`, sampled from the first 90 % of the training split |
 | `N_TUNE`        | 1,000,000 | size of `tune_enc`, sampled from the last 10 % of the training split |
 | `TUNE_FRACTION` | 0.9       | where the tune period starts inside the training split (in time order) |
-| `ENCODE_TEST`   | False     | also encode the test split (only at the end of the project) |
 | `VOCAB_COLUMNS` | 13 fields | categorical inputs and the vocabulary each one uses |
 
 Changing them requires running `prepare` again, which overwrites `data/encoded/`: rename
@@ -102,9 +101,10 @@ the old folder first if you want to keep it. The values used are recorded in
 
 - `name`: label of the run; results are saved under this name.
 - `split`: where the models are evaluated: `"val"` (default) or `"test"`. Models are always
-  trained on the training data only; `split` only changes where they are evaluated. The
-  test split requires `"confirm_test": true` and `ENCODE_TEST = True` in `prepare.py`, and
-  is used once, at the end of the project, with frozen configs.
+  trained on the training data only; `split` only changes where they are evaluated.
+  The test split is meant to be used **once, at the end of the project**, with frozen
+  configs and all models in the same run: choices made after looking at it would bias the
+  final result. The program prints a warning when `split` is `"test"`.
 - `models`: which baselines to run.
 - one block per model with its hyperparameters (missing values take the defaults written
   at the top of each model file).
@@ -151,7 +151,7 @@ line in `src/flowtok/models/__init__.py`.
 
 ```
 data/encoded/                          # written by prepare (not committed)
-    train_enc.parquet, tune_enc.parquet, val_enc.parquet
+    train_enc.parquet, tune_enc.parquet, val_enc.parquet, test_enc.parquet
     value_map.parquet, vocabularies.json, meta.json, quality.csv
 
 results/

@@ -39,13 +39,17 @@ def main():
     if not cfg["models"]:
         raise SystemExit('No models to run: add a "models" list to the config.')
     print(f"Run '{name}' | split: {split} | models: {cfg['models']}")
+    if split == "test":
+        print("\n" + "!" * 78)
+        print("  WARNING: evaluating on the TEST split. Use it once, at the end of the project,")
+        print("  with frozen configs: choices made after looking at it bias the final result.")
+        print("!" * 78 + "\n")
 
     con = db.connect()
     db.register_prepared(con)
     found = db.register_encoded(con)
     if f"{split}_enc" not in found:
-        raise SystemExit(f"data/encoded/{split}_enc.parquet not found: run `python -m flowtok.prepare`"
-                         + (" with ENCODE_TEST = True." if split == "test" else "."))
+        raise SystemExit(f"data/encoded/{split}_enc.parquet not found: run `python -m flowtok.prepare`.")
     thresholds = evaluation.robust_thresholds(con, data.load_meta())
 
     metrics_dir     = paths.METRICS_DIR / name / split
