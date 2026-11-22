@@ -1,0 +1,7 @@
+{
+  "name": "quick",
+  "split": "val",
+  "models": ["b0", "b1"],
+
+  "b1": {"identifier": "L2", "orientation": "server_client", "min_flows": 1000}
+}

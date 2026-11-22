@@ -1,0 +1,16 @@
+{
+  "name": "default",
+  "split": "val",
+  "models": ["b0", "b1", "b2", "b4"],
+
+  "b1": {"identifier": "L2", "orientation": "server_client", "min_flows": 1000},
+  "b2": {"lambda": 1e-5, "epochs": 5, "lr": 0.01, "gamma": 0.5, "batch": 4096, "seed": 0},
+  "b4": {"n_trees": 411, "learning_rate": 0.1, "num_leaves": 63, "min_data_in_leaf": 50,
+         "min_data_per_group": 50, "cat_smooth": 10, "max_cat_threshold": 32, "seed": 0},
+
+  "tuning": {
+    "b2": {"lambda": [0.0, 1e-6, 1e-5, 1e-4, 1e-3], "max_epochs": 8, "patience": 3},
+    "b4": {"grid": {"num_leaves": [31, 63, 127], "min_data_in_leaf": [50, 100, 1000]},
+           "max_trees": 5000, "early_stopping": 100}
+  }
+}
