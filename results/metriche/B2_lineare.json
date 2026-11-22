@@ -1,0 +1,18 @@
+{
+  "modello": "B2 lineare (L1)",
+  "MAE": 1.966399624044382,
+  "RMSE": 47.22161084222985,
+  "RMSE_robusto": 5.263721887524995,
+  "P90_abs": 4.598690421390536,
+  "P99_abs": 23.0344129575348,
+  "parametri": 1733,
+  "tempo_train_s": 10.5,
+  "flow_addestramento": 4000667,
+  "lambda": 1e-05,
+  "epoche": 5,
+  "gamma": 0.5,
+  "soglie_rmse_robusto": [
+    -184.23263,
+    58.82300000000002
+  ]
+}

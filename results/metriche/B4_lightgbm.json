@@ -1,0 +1,24 @@
+{
+  "modello": "B4 LightGBM (L1)",
+  "MAE": 1.8332570069765324,
+  "RMSE": 47.07572434124263,
+  "RMSE_robusto": 4.94458663190812,
+  "P90_abs": 4.563222661904012,
+  "P99_abs": 22.640237498110384,
+  "parametri": 25893,
+  "parametri_nota": "foglie totali; struttura dei tagli non contata",
+  "tempo_train_s": 31,
+  "flow_addestramento": 4000667,
+  "alberi": 411,
+  "learning_rate": 0.1,
+  "num_leaves": 63,
+  "min_data_in_leaf": 50,
+  "min_data_per_group": 50,
+  "cat_smooth": 10,
+  "max_cat_threshold": 32,
+  "mae_tune_selezione": 1.5944,
+  "soglie_rmse_robusto": [
+    -184.23263,
+    58.82300000000002
+  ]
+}

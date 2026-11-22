@@ -9,7 +9,6 @@ __pycache__/
 .DS_Store
 
 data/*
-results/metriche/*
 !data/.gitkeep
 docs/TIMELINE.md
 temp-diagrams/
