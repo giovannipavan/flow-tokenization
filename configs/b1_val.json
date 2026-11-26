@@ -1,0 +1,6 @@
+{
+  "name": "b1_val",
+  "split": "val",
+  "models": ["b1"],
+  "b1": {"identifier": "L2", "orientation": "server_client", "min_flows": 1000}
+}

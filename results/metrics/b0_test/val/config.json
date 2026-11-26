@@ -1,0 +1,7 @@
+{
+  "name": "b0_test",
+  "split": "val",
+  "models": [
+    "b0"
+  ]
+}
